@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/Navbar/Navbar";
+import Dashboard from "./components/Dashboard/Dashboard";
+import PlaceList from "./pages/PlaceList"
+import PlaceDetail from './pages/PlaceDetail';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 
 function App() {
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('sm'));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    {!isMobile && (
+      <Dashboard/>
+    )}
+       <Navbar/>
+       <Routes>
+        <Route path="/" element={<PlaceList/>} />
+        <Route path="/place/:id" element={<PlaceDetail/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
