@@ -20,7 +20,7 @@ To set up and run the Neareat WebApp locally, follow these steps:
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/neareat-webapp.git
+    git clone https://github.com/TanakonThankokkuad/neareat-webapp.git
     ```
 
 2. **Navigate to the project directory**:
